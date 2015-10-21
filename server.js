@@ -14,9 +14,9 @@ app.post('/log', function(req, res) {
 });
 
 app.post('/raw', function(req, res) {
-  console.log(req.body);
   writeStream.write(JSON.stringify(req.body) + '\n', 'utf8', function() {
     console.log("Wrote raw to file");
+    res.send(200, "Wrote to file");
   });
 });
 
